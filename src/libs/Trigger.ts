@@ -1,34 +1,40 @@
 import { Aircraft } from './Aircraft'
 import { CallSign } from './CallSign'
+import { Conversation } from '../types/Conversation'
 
 import fuzzySet from 'fuzzyset.js'
+
 import { Guarder } from 'guarder'
+import { Result } from './Result'
 
 class Trigger {
   private readonly aircraft: Aircraft
   private readonly callSign: CallSign
+
+  private readonly threshold: number
   private readonly responseText: string
   private readonly triggerTexts: string[]
 
-  constructor(callSign: CallSign, aircraft: Aircraft, triggerTexts: string[], responseText: string) {
+  constructor(callSign: CallSign, aircraft: Aircraft, conversation: Conversation, threshold: number = 0.8) {
     Guarder.empty(callSign)
     Guarder.empty(aircraft)
-    Guarder.empty(triggerTexts)
-    Guarder.empty(responseText)
+    Guarder.empty(conversation.responseText)
+    Guarder.empty(conversation.triggerTexts)
 
     this.aircraft = aircraft
     this.callSign = callSign
+    this.threshold = threshold
 
-    this.responseText = responseText.replace('{{callSign}}', callSign.getCallSign())
+    this.responseText = conversation.responseText.replace('{{callSign}}', callSign.getCallSign())
       .replace('{{shortenedCallSign}}', callSign.getShortenedCallSign())
 
-    this.triggerTexts = triggerTexts.map((triggerText: string) => triggerText.replace('{{callSign}}', callSign.getCallSign()))
+    this.triggerTexts = conversation.triggerTexts.map((triggerText: string) => triggerText.replace('{{callSign}}', callSign.getCallSign()))
       .map((triggerText: string) => triggerText.replace('{{shortenedCallSign}}', callSign.getShortenedCallSign()))
       .map((triggerText: string) => triggerText.replace('{{aircraftManufacturer}}', aircraft.getManufacturer()))
       .map((triggerText: string) => triggerText.replace('{{aircraftType}}', aircraft.getType()))
   }
 
-  public detectTriggers(text: string) {
+  public detectTriggers(text: string): Result {
     const matchingSet = fuzzySet(this.triggerTexts)
 
     const result = matchingSet.get(text)
@@ -39,11 +45,17 @@ class Trigger {
 
     const [confidence] = result[0]
 
-    if (confidence > 0.8) {
-      return [confidence, this.responseText]
+    if (confidence > this.threshold) {
+      return {
+        confidence,
+        message: this.responseText
+      }
     }
 
-    return null
+    return {
+      confidence: 0,
+      message: ''
+    }
   }
 }
 
