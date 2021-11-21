@@ -1,0 +1,32 @@
+[
+  {
+    "responseText": "{{callSign}}, go ahead",
+    "triggerTexts": [
+      "cape town apron student {{callSign}} good day",
+      "cape town april student {{callSign}} good day",
+      "cape town apron student {{shortenedCallSign}} good day",
+      "cape town april student {{shortenedCallSign}} good day"
+    ]
+  },
+  {
+    "responseText": "thanks {{callSign}}, contact ground on 1 2 1 decimal 9 when ready",
+    "triggerTexts": [
+      "student {{callSign}} {{aircraftManufacturer}} {{aircraftType}} 2 onboard 3 hours endurance for a training flight to cape winelands",
+      "student {{callSign}} {{aircraftManufacturer}} {{aircraftType}} to onboard 3 hours endurance for a training flight to cape winelands",
+      "student {{callSign}} {{aircraftManufacturer}} {{aircraftType}} two onboard 3 hours endurance for a training flight to cape winelands",
+      "student {{callSign}} {{aircraftManufacturer}} {{aircraftType}} too onboard 3 hours endurance for a training flight to cape winelands",
+      "student {{shortenedCallSign}} {{aircraftManufacturer}} {{aircraftType}} 2 onboard 3 hours endurance for a training flight to cape winelands"
+    ]
+  },
+  {
+    "responseText": "complete",
+    "triggerTexts": [
+      "contact ground on 121 decimal 9 when ready {{callSign}}",
+      "contact ground on 121 decimal 9 when ready {{shortenedCallSign}}",
+      "will contact ground on 121.9 when ready {{shortenedCallSign}}",
+      "will contact ground on one to one decimal 9 when ready {{shortenedCallSign}}",
+      "will contact ground on one to one decimal 9 when ready {{shortenedCallSign}}",
+      "will contact ground on one to one decimal nine when ready {{shortenedCallSign}}"
+    ]
+  }
+]
