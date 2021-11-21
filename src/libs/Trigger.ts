@@ -1,11 +1,11 @@
 import { Aircraft } from './Aircraft'
 import { CallSign } from './CallSign'
 import { Conversation } from '../types/Conversation'
+import { TriggerResult } from '../types/TriggerResult'
 
 import fuzzySet from 'fuzzyset.js'
 
 import { Guarder } from 'guarder'
-import { Result } from './Result'
 
 class Trigger {
   private readonly aircraft: Aircraft
@@ -34,13 +34,16 @@ class Trigger {
       .map((triggerText: string) => triggerText.replace('{{aircraftType}}', aircraft.getType()))
   }
 
-  public detectTriggers(text: string): Result {
+  public detectTriggers(text: string): TriggerResult {
     const matchingSet = fuzzySet(this.triggerTexts)
 
     const result = matchingSet.get(text)
 
     if (!result || !result.length) {
-      return null
+      return {
+        confidence: 0,
+        message: ''
+      }
     }
 
     const [confidence] = result[0]

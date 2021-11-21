@@ -46,7 +46,7 @@ function runSpeechRecognition () {
       .then((response) => response.json())
       .then((data) => {
         speak(data.message)
-        appendToConversation({ transcript: data.message, confidence: data.confidence, by: 'ATC' })
+        appendToConversation({ transcript: data.message, confidence: data.confidence, by: data.name })
       })
 
     appendToConversation({ transcript, confidence: confidence * 100, by: 'Aircraft' })

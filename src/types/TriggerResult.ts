@@ -1,7 +1,6 @@
-interface Result {
-  name: string
+interface TriggerResult {
   message: string
   confidence: number
 }
 
-export { Result }
+export { TriggerResult }

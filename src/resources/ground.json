@@ -1,0 +1,45 @@
+[
+  {
+    "responseText": "{{callSign}}, go ahead",
+    "triggerTexts": [
+      "cape town ground student {{callSign}} good day",
+      "cape town ground student {{callSign}} good day",
+      "cape town ground student {{shortenedCallSign}} good day",
+      "cape town ground student {{shortenedCallSign}} good day"
+    ]
+  },
+  {
+    "responseText": "{{callSign}}, information echo is correct, QNH 1 0 2 1, squawk 1 5 1 2, taxi and hold at hotel",
+    "triggerTexts": [
+      "{{callSign}} parked at saf-air 2 onboard 3 hours endurance request taxi instructions for a flight to cape winelands information echo received and request echo for departure",
+      "{{callSign}} parked at safair to onboard 3 hours endurance request tax instructions for a flight to Cape winelands information Echo received and request echo for departure"
+    ]
+  },
+  {
+    "responseText": "{{callSign}}, taxi left bravo, echo, holding point runway 1 9",
+    "triggerTexts": [
+      "qnh 1021 squawking 1512 taxi and hold at hotel {{callSign}}",
+      "q&h 1021 squawking 1512 taxi and hold at hotel {{callSign}}",
+      "qnh 1021 squawking 1512 taxi and hold at hotel {{shortenedCallSign}}",
+      "q&h 1021 squawking 1512 taxi and hold at hotel {{shortenedCallSign}}"
+    ]
+  },
+  {
+    "responseText": "{{callSign}} contact tower when ready 1 1 8 decimal 1",
+    "triggerTexts": [
+      "taxi left bravo echo holding point runway 1 9 {{callSign}}",
+      "taxi left bravo echo holding point runway 1 9 {{shortenedCallSign}}"
+    ]
+  },
+  {
+    "responseText": "complete",
+    "triggerTexts": [
+      "contact tower 1 18 decimal one when ready {{callSign}}",
+      "contact tower 1 18 decimal one when ready {{shortenedCallSign}}",
+      "contact tower 118 decimal 1 when ready {{callSign}}",
+      "contact tower 118 decimal 1 when ready {{shortenedCallSign}}",
+      "contact tower on 118.1 when ready {{callSign}}",
+      "contact tower on 118.1 when ready {{shortenedCallSign}}"
+    ]
+  }
+]
