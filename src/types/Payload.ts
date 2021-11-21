@@ -1,3 +1,6 @@
+/**
+ * Payload represents the incoming JSON body
+ */
 interface Payload {
   callSign: string
   frequency: string

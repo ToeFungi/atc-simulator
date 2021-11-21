@@ -6,6 +6,10 @@ import { Conversation } from '../types/Conversation'
 import { TriggerResult } from '../types/TriggerResult'
 import { ProcessorResult } from '../types/ProcessorResult'
 
+/**
+ * Conversation Processor facilitates the matching of text against conversations and returns the appropriate response
+ * text
+ */
 class ConversationProcessor {
   private readonly name: string
   private readonly conversation: Conversation[]
@@ -15,6 +19,9 @@ class ConversationProcessor {
     this.conversation = require(filePath)
   }
 
+  /**
+   * Match the text against triggers for the specified processor and get the response text
+   */
   public matchTriggers(payload: Payload): ProcessorResult {
     const aircraft = new Aircraft(payload.aircraftType, payload.aircraftManufacturer)
     const callSign = new CallSign(payload.callSign, payload.shortenedCallSign)

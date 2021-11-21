@@ -25,7 +25,7 @@
     ]
   },
   {
-    "responseText": "{{callSign}} contact tower when ready 1 1 8 decimal 1",
+    "responseText": "{{callSign}}, contact tower when ready on 1 1 8 decimal 1 when ready",
     "triggerTexts": [
       "taxi left bravo echo holding point runway 1 9 {{callSign}}",
       "taxi left bravo echo holding point runway 1 9 {{shortenedCallSign}}"

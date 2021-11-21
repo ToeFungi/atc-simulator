@@ -7,6 +7,9 @@ import fuzzySet from 'fuzzyset.js'
 
 import { Guarder } from 'guarder'
 
+/**
+ * Trigger represents trigger information
+ */
 class Trigger {
   private readonly aircraft: Aircraft
   private readonly callSign: CallSign
@@ -34,6 +37,9 @@ class Trigger {
       .map((triggerText: string) => triggerText.replace('{{aircraftType}}', aircraft.getType()))
   }
 
+  /**
+   * Detect text again specific trigger text
+   */
   public detectTriggers(text: string): TriggerResult {
     const matchingSet = fuzzySet(this.triggerTexts)
 

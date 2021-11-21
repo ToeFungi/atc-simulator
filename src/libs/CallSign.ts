@@ -1,6 +1,9 @@
 import { Guarder } from 'guarder'
 import { Phonetical } from 'phonetical'
 
+/**
+ * Call Sign represents call sign information
+ */
 class CallSign {
   private readonly callSign: string
   private readonly shortenedCallSign: string
