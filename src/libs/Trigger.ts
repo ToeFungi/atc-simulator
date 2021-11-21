@@ -1,5 +1,5 @@
-import { CallSign } from './libs/CallSign'
-import { Aircraft } from './libs/Aircraft'
+import { Aircraft } from './Aircraft'
+import { CallSign } from './CallSign'
 
 import fuzzySet from 'fuzzyset.js'
 import { Guarder } from 'guarder'

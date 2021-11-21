@@ -2,11 +2,11 @@ import express from 'express'
 
 import { json } from 'body-parser'
 
-import { Trigger } from './Trigger'
+import { Trigger } from './libs/Trigger'
+import { Aircraft } from './libs/Aircraft'
 import { CallSign } from './libs/CallSign'
 
 import apron from './resources/apron.json'
-import { Aircraft } from './libs/Aircraft'
 
 const server = express()
 
